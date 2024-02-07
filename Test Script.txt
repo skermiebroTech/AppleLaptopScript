@@ -19,36 +19,22 @@ end tell
 -- Get battery data
 set battery_data to do shell script "echo " & quoted form of sudoPassword & " | sudo -S system_profiler SPPowerDataType"
 
--- Extract battery cycles, current capacity, and design capacity
-set cycle_count to missing value
-set current_capacity to missing value
-set design_capacity to missing value
+-- Extract battery cycles, current capacity, and design capacity using regular expressions
+set cycle_count to extractNumber("Cycle Count: (\\d+)", battery_data)
+set current_capacity to extractNumber("Full Charge Capacity \\(mAh\\): (\\d+)", battery_data)
+set design_capacity to extractNumber("Design Capacity \\(mAh\\): (\\d+)", battery_data)
 
--- Helper function to extract numerical value from string
-on extractNumericValue(inputString)
-    set extractedValue to ""
-    set AppleScript's text item delimiters to space
-    set inputList to text items of inputString
-    repeat with itemText in inputList
-        try
-            set numericValue to itemText as number
-            set extractedValue to itemText
-            exit repeat
-        end try
-    end repeat
-    return extractedValue
-end extractNumericValue
-
--- Process each line of battery data
-repeat with lineText in paragraphs of battery_data
-    if lineText contains "Cycle Count" then
-        set cycle_count to extractNumericValue(lineText)
-    else if lineText contains "Full Charge Capacity" then
-        set current_capacity to extractNumericValue(lineText)
-    else if lineText contains "Design Capacity" then
-        set design_capacity to extractNumericValue(lineText)
+-- Helper function to extract a number using a regular expression
+on extractNumber(pattern, textString)
+    set regex to "(?s)" & pattern
+    set theMatches to do shell script "echo " & quoted form of textString & " | grep -oE '" & regex & "' | head -n1"
+    if theMatches is "" then
+        return missing value
+    else
+        set theNumber to last word of theMatches
+        return theNumber as number
     end if
-end repeat
+end extractNumber
 
 -- Calculate battery percentage
 if cycle_count is not missing value and current_capacity is not missing value and design_capacity is not missing value then
