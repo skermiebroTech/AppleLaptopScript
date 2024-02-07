@@ -26,11 +26,11 @@ set design_capacity to missing value
 
 repeat with lineText in paragraphs of battery_data
     if lineText contains "Cycle Count" then
-        set cycle_count to word 3 of lineText
-    else if lineText contains "Full Charge Capacity (mAh)" then
-        set current_capacity to word 6 of lineText
-    else if lineText contains "Design Capacity (mAh)" then
-        set design_capacity to word 6 of lineText
+        set cycle_count to word -2 of lineText
+    else if lineText contains "Full Charge Capacity" then
+        set current_capacity to last word of lineText
+    else if lineText contains "Design Capacity" then
+        set design_capacity to last word of lineText
     end if
 end repeat
 
