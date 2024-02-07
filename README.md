@@ -26,7 +26,7 @@ A script for quickly checking a MacBook
 
 ## TODO
 - [ ] Make it work with API
-- [ ] Calculate battery percentage
+- [ ] Calculate battery percentage based off current_capacity / design_capacity * 100
 
 ## The Script
 ```applescript
