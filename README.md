@@ -33,7 +33,7 @@ set sudoPassword to text returned of (display dialog "Enter your sudo password:"
 do shell script "echo " & quoted form of sudoPassword & " | sudo -S networksetup -setairportnetwork en0 G1-Retail Ebayunit28"
 delay 3
 
--- Set volume to 50%
+-- Set volume to 70%
 set volume output volume 70
 
 -- Play sound to test speakers
