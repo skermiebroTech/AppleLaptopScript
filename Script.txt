@@ -1,0 +1,32 @@
+-- Prompt user for sudo password
+set sudoPassword to text returned of (display dialog "Enter your sudo password:" default answer "" with hidden answer)
+
+-- Connect to WiFi network
+do shell script "echo " & quoted form of sudoPassword & " | sudo -S networksetup -setairportnetwork en0 G1-Retail Ebayunit28"
+delay 3
+
+-- Set volume to 50%
+set volume output volume 70
+
+-- Play sound to test speakers
+do shell script "afplay -v 0.5 /Volumes/MACOSSCRIPT/WindowsXPStartup.wav"
+
+-- Open Camera
+tell application "Photo Booth"
+    activate
+end tell
+
+-- Get battery cycles and capacity
+set battery_data to do shell script "echo " & quoted form of sudoPassword & " | sudo -S system_profiler SPPowerDataType"
+set cycle_count to word 3 of paragraph 5 of battery_data
+set current_capacity to word 3 of paragraph 6 of battery_data
+set design_capacity to word 3 of paragraph 7 of battery_data
+
+-- Calculate battery percentage
+set battery_percentage to round ((current_capacity / design_capacity) * 100)
+
+-- Display battery cycles and percentage
+display dialog "Battery Cycles: " & cycle_count & return & "Battery Percentage: " & battery_percentage & "%" & return & "Click OK to run MDM check"
+
+-- Renew enrollment profile
+do shell script "echo " & quoted form of sudoPassword & " | sudo -S profiles renew -type enrollment"
