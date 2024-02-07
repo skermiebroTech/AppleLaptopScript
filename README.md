@@ -12,7 +12,7 @@ delay 3
 -- Set volume to 50%
 set volume output volume 70
 
--- Play built-in system sound
+-- Play sound to test speakers
 do shell script "afplay -v 0.5 /Volumes/MACOSSCRIPT/WindowsXPStartup.wav"
 
 -- Open Camera
