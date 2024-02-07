@@ -27,7 +27,7 @@ A script for quickly checking a MacBook
 ## the script:
 ```
 -- Prompt user for sudo password
-set sudoPassword to text returned of (display dialog "Enter your sudo password:" default answer "" with hidden answer)
+set sudoPassword to text returned of (display dialog "Enter your sudo password:" default answer "password" with hidden answer)
 
 -- Connect to WiFi network
 do shell script "echo " & quoted form of sudoPassword & " | sudo -S networksetup -setairportnetwork en0 G1-Retail Ebayunit28"
