@@ -1,6 +1,6 @@
 # AppleLaptopScript
 A script for quickly checking a MacBook 
-the script:
+##the script:
 ```
 -- Prompt user for sudo password
 set sudoPassword to text returned of (display dialog "Enter your sudo password:" default answer "" with hidden answer)
