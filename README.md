@@ -1,6 +1,6 @@
 # AppleLaptopScript
 A script for quickly checking a MacBook 
-# tutorial
+# Tutorial
 1. **Rename a USB as `MACOSSCRIPT`**:
    - Connect the USB drive to your computer.
    - Rename the USB drive to `MACOSSCRIPT`.
