@@ -16,17 +16,33 @@ tell application "Photo Booth"
     activate
 end tell
 
--- Get battery cycles and capacity
+-- Get battery data
 set battery_data to do shell script "echo " & quoted form of sudoPassword & " | sudo -S system_profiler SPPowerDataType"
-set cycle_count to word 3 of paragraph 5 of battery_data
-set current_capacity to word 3 of paragraph 6 of battery_data
-set design_capacity to word 3 of paragraph 7 of battery_data
+
+-- Extract battery cycles, current capacity, and design capacity
+set cycle_count to missing value
+set current_capacity to missing value
+set design_capacity to missing value
+
+repeat with lineText in paragraphs of battery_data
+    if lineText contains "Cycle Count" then
+        set cycle_count to word 3 of lineText
+    else if lineText contains "Full Charge Capacity (mAh)" then
+        set current_capacity to word 6 of lineText
+    else if lineText contains "Design Capacity (mAh)" then
+        set design_capacity to word 6 of lineText
+    end if
+end repeat
 
 -- Calculate battery percentage
-set battery_percentage to round ((current_capacity / design_capacity) * 100)
-
--- Display battery cycles and percentage
-display dialog "Battery Cycles: " & cycle_count & return & "Battery Percentage: " & battery_percentage & "%" & return & "Click OK to run MDM check"
-
--- Renew enrollment profile
-do shell script "echo " & quoted form of sudoPassword & " | sudo -S profiles renew -type enrollment"
+if cycle_count is not missing value and current_capacity is not missing value and design_capacity is not missing value then
+    set battery_percentage to round ((current_capacity / design_capacity) * 100)
+    
+    -- Display battery cycles and percentage
+    display dialog "Battery Cycles: " & cycle_count & return & "Battery Percentage: " & battery_percentage & "%" & return & "Click OK to run MDM check"
+    
+    -- Renew enrollment profile
+    do shell script "echo " & quoted form of sudoPassword & " | sudo -S profiles renew -type enrollment"
+else
+    display dialog "Error: Failed to retrieve battery information." buttons {"OK"} default button "OK" with icon stop
+end if
