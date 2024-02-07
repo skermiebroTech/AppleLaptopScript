@@ -1,5 +1,9 @@
 # AppleLaptopScript
 A script for quickly checking a MacBook 
+# NOTE THE NAME OF THE USB MUST BE MACOSSCRIPT
+### TODO
+- [ ] make it work with API
+- [ ] calculate battery percentage
 ## the script:
 ```
 -- Prompt user for sudo password
