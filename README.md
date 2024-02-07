@@ -1,6 +1,7 @@
 # AppleLaptopScript
 A script for quickly checking a MacBook 
-# Tutorial
+
+## Tutorial
 1. **Rename a USB as `MACOSSCRIPT`**:
    - Connect the USB drive to your computer.
    - Rename the USB drive to `MACOSSCRIPT`.
@@ -20,12 +21,15 @@ A script for quickly checking a MacBook
    - Download the ZIP file by clicking on the "Source code (zip)" option or the equivalent for the latest release.
    - Once the ZIP file is downloaded, extract its contents.
    - Copy all extracted files and folders to the root directory of the USB drive.
-# NOTE THE NAME OF THE USB MUST BE MACOSSCRIPT
-### TODO
-- [ ] make it work with API
-- [ ] calculate battery percentage
-## the script:
-```
+
+### NOTE: THE NAME OF THE USB MUST BE MACOSSCRIPT
+
+## TODO
+- [ ] Make it work with API
+- [ ] Calculate battery percentage
+
+## The Script
+```applescript
 -- Prompt user for sudo password
 set sudoPassword to text returned of (display dialog "Enter your sudo password:" default answer "password" with hidden answer)
 
@@ -50,4 +54,3 @@ display dialog "Battery Cycles: " & battery_cycles & return & "click ok to run M
 
 -- Renew enrollment profile
 do shell script "echo " & quoted form of sudoPassword & " | sudo -S profiles renew -type enrollment"
-```
