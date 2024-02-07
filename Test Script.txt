@@ -24,13 +24,29 @@ set cycle_count to missing value
 set current_capacity to missing value
 set design_capacity to missing value
 
+-- Helper function to extract numerical value from string
+on extractNumericValue(inputString)
+    set extractedValue to ""
+    set AppleScript's text item delimiters to space
+    set inputList to text items of inputString
+    repeat with itemText in inputList
+        try
+            set numericValue to itemText as number
+            set extractedValue to itemText
+            exit repeat
+        end try
+    end repeat
+    return extractedValue
+end extractNumericValue
+
+-- Process each line of battery data
 repeat with lineText in paragraphs of battery_data
     if lineText contains "Cycle Count" then
-        set cycle_count to word -2 of lineText
+        set cycle_count to extractNumericValue(lineText)
     else if lineText contains "Full Charge Capacity" then
-        set current_capacity to last word of lineText
+        set current_capacity to extractNumericValue(lineText)
     else if lineText contains "Design Capacity" then
-        set design_capacity to last word of lineText
+        set design_capacity to extractNumericValue(lineText)
     end if
 end repeat
 
