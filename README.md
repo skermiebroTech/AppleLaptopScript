@@ -1,5 +1,5 @@
 # AppleLaptopScript
-A script for quickly checking a MacBook 
+A script for quickly checking a MacBook before sale
 
 ## Tutorial
 1. **Rename a USB as `MACOSSCRIPT`**:
@@ -40,7 +40,7 @@ delay 3
 -- Set volume to 70%
 set volume output volume 70
 
--- Play sound to test speakers
+-- Play sound to test speakers. Change this if using a dif location for audio file
 do shell script "afplay -v 0.5 /Volumes/MACOSSCRIPT/WindowsXPStartup.wav"
 
 -- Open Camera
