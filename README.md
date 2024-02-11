@@ -10,9 +10,9 @@ A script for quickly checking a MacBook before sale
    - Choose FAT32 as the file system format.
    - Click "Format" to proceed with the formatting process.
    
-2. **Rename the USB as `MACOSSCRIPT`**:
+2. **Rename the USB as ```MACOSSCRIPT```**:
    - Connect the USB drive to your computer.
-   - Rename the USB drive to `MACOSSCRIPT`.
+   - Rename the USB drive to ```MACOSSCRIPT```.
 
 
 
