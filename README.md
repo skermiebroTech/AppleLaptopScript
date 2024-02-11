@@ -16,10 +16,9 @@ A script for quickly checking a MacBook before sale
 
 4. **Download the Latest Release from GitHub**:
    - Open a web browser and go to [skermiebroTech/AppleLaptopScript releases](https://github.com/skermiebroTech/AppleLaptopScript/releases).
-   - Locate the latest release and click on it to open the release page.
+   - Download the latest .zip file eg: v1.zip
 
 5. **Extract Zip File to the Root Directory of the USB**:
-   - Download the ZIP file by clicking on the "Source code (zip)" option or the equivalent for the latest release.
    - Once the ZIP file is downloaded, extract its contents.
    - Copy all extracted files and folders to the root directory of the USB drive.
 
