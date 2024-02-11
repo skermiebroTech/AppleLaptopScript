@@ -1,18 +1,20 @@
 # AppleLaptopScript
 A script for quickly checking a MacBook before sale
-
 ## Tutorial
-1. **Rename a USB as `MACOSSCRIPT`**:
-   - Connect the USB drive to your computer.
-   - Rename the USB drive to `MACOSSCRIPT`.
 
-2. **Format USB as FAT32**:
+1. **Format a USB as FAT32**:
    *this step is not necessary but recommended*
    - Ensure all necessary data on the USB drive is backed up, as formatting will erase all existing data.
    - Right-click on the USB drive icon.
    - Select the "Format" option.
    - Choose FAT32 as the file system format.
    - Click "Format" to proceed with the formatting process.
+   
+2. **Rename the USB as `MACOSSCRIPT`**:
+   - Connect the USB drive to your computer.
+   - Rename the USB drive to `MACOSSCRIPT`.
+
+
 
 4. **Download the Latest Release from GitHub**:
    - Open a web browser and go to [skermiebroTech/AppleLaptopScript releases](https://github.com/skermiebroTech/AppleLaptopScript/releases).
