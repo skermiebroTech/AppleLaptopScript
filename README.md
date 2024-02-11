@@ -7,17 +7,18 @@ A script for quickly checking a MacBook before sale
    - Rename the USB drive to `MACOSSCRIPT`.
 
 2. **Format USB as FAT32**:
+   *this step is not necessary but recommended*
    - Ensure all necessary data on the USB drive is backed up, as formatting will erase all existing data.
    - Right-click on the USB drive icon.
    - Select the "Format" option.
    - Choose FAT32 as the file system format.
    - Click "Format" to proceed with the formatting process.
 
-3. **Download the Latest Release from GitHub**:
+4. **Download the Latest Release from GitHub**:
    - Open a web browser and go to [skermiebroTech/AppleLaptopScript releases](https://github.com/skermiebroTech/AppleLaptopScript/releases).
    - Locate the latest release and click on it to open the release page.
 
-4. **Extract Zip File to the Root Directory of the USB**:
+5. **Extract Zip File to the Root Directory of the USB**:
    - Download the ZIP file by clicking on the "Source code (zip)" option or the equivalent for the latest release.
    - Once the ZIP file is downloaded, extract its contents.
    - Copy all extracted files and folders to the root directory of the USB drive.
