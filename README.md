@@ -29,6 +29,7 @@ A script for quickly checking a MacBook before sale
 ## TODO
 - [ ] Make it work with API
 - [ ] Calculate battery percentage based off current_capacity / design_capacity * 100
+- [ ] Reset laptop after run
 
 ## The Script
 ```applescript
