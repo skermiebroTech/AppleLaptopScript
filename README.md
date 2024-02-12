@@ -1,5 +1,6 @@
 # AppleLaptopScript
 A script for quickly checking a MacBook before sale
+
 ## Tutorial
 
 1. **Format a USB as FAT32**:
@@ -25,7 +26,7 @@ A script for quickly checking a MacBook before sale
    - Copy all extracted files and folders to the root directory of the USB drive.
 
 ### NOTE: THE NAME OF THE USB MUST BE MACOSSCRIPT
-
+### Note 2: sometimes the script can be messed up and wont open, if this happens delete the one in the main directory and coppy the one from the `sources` folder 
 ## TODO
 - [ ] Make it work with API
 - [ ] Calculate battery percentage based off current_capacity / design_capacity * 100
